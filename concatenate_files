@@ -1,0 +1,11 @@
+for s1 in /staton/projects/Taihu_metagenome/raw_reads/*_s1_*
+do
+ s2=`sed 's/s1/s2/' <(echo $s1)`
+ BASE=$( basename $s1 | sed 's/.fastq.gz*//g')
+ echo "s1 $s1"
+ echo "s2 $s2"
+ echo "BASE $BASE"
+
+ cat $s1 $s2 > $BASE.cat.fastq.gz
+
+done
